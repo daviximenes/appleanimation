@@ -7,7 +7,7 @@ const end = section.querySelector('h1');
 
 const controller = new ScrollMagic.Controller();
 
-const scene = new ScrollMagic.Scene({
+let scene = new ScrollMagic.Scene({
     duration:11000,
     triggerElement: intro,
     triggerHook:0
@@ -15,7 +15,15 @@ const scene = new ScrollMagic.Scene({
     .addIndicators()
     .setPin(intro)
     .addTo(controller);
+const textAnimation  = TweenMax.fromTo(text, 3,{opacity:1}, {opacity:0});
 
+let scene2 = new ScrollMagic.Scene({
+    duration : 1000,
+    triggerElement : intro,
+    triggerHook : 0
+})
+.setTween(textAnimation)
+.addTo(controller);
 
 //Video Animation
 let aceleration = 0.1;
